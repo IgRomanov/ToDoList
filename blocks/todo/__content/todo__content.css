@@ -1,0 +1,5 @@
+.todo__content {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+}

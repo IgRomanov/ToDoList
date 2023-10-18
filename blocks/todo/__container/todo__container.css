@@ -1,0 +1,8 @@
+.todo__container {
+    margin: 0 auto;
+    margin-top: 150px;
+    padding: 40px;
+    width: 60%;
+    background-color: rgb(32, 32, 32);
+    border-radius: 30px;
+}

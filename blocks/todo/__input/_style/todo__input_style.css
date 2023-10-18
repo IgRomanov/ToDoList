@@ -1,0 +1,14 @@
+.todo__input_style {
+    border-radius: 7px;
+    border: none;
+    padding: 0 10px;
+    height: 25px;
+    width: 150px;
+    background-color: rgb(0, 132, 255);
+    color: white;
+    font-weight: 500;
+}
+
+.todo__input_style::placeholder {
+    color: white
+}

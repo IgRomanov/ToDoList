@@ -1,0 +1,8 @@
+.todo_btn-cursor-pointer {
+    cursor: pointer;
+    transition: opacity ease-in-out .4s;
+}
+
+.todo_btn-cursor-pointer:hover {
+    opacity: .7;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="./vendor/normalize.css"/>
+    <link rel="stylesheet" href="./pages/index.css"/>
+</head>
+<body class="body">
+    <div class="page">
+        <main>
+            <div class="todo__container">
+                <h3 class="todo__title">ToDo List</h3>
+                <div class="todo__content">
+                    <form class="todo__form">
+                        <div>
+                            <label>
+                                <input class="todo__input todo__input_style" placeholder="Новая задача..."></input>
+                            </label>
+                            <button class="todo__add-btn todo_btn-cursor-pointer todo__input_style ">Добавить</button>
+                        </div>
+                        <div>
+                            <select class="todo__sort todo_btn-cursor-pointer todo__input_style ">
+                                <option value="all" id="all">Все</option>
+                                <option value="completed" id="completed">Выполненные</option>
+                                <option value="progress" id="progress">В процессе</option>
+                            </select>
+                            <button class="todo__dlt-all-btn todo_btn-cursor-pointer todo__input_style ">Удалить всё</button>
+                        </div>
+                    </form> 
+                </div>
+                <div class="todo__list">
+        
+                </div>
+            </div>
+        </main>
+    </div>
+    <template id="tasktmpl">
+        <div class="task">
+            <div>
+                <input class="task__completed" type="checkbox">
+                <span class="task__name"></span>
+            </div>
+            <button class="todo__dlt-btn todo_btn-cursor-pointer    "></button>
+        </div>
+    </template>
+    <script src="./pages/index.js"></script>
+</body>
+</html>

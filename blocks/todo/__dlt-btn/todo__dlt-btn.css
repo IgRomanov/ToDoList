@@ -1,0 +1,8 @@
+.todo__dlt-btn {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../../images/icons8-delete.svg');
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
