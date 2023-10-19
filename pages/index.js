@@ -5,7 +5,7 @@ const template = document.querySelector('#tasktmpl');
 const dltAllBtn = document.querySelector('.todo__dlt-all-btn');
 const sortBtn = document.querySelector('.todo__sort');
 
-function addTask(task) {
+const addTask = (task) => {
     todoArr.push({
         id: todoArr.length !== 0 ? todoArr.length : 0,
         task,
@@ -13,7 +13,7 @@ function addTask(task) {
     })
 };
 
-function changeTask(id, taskNode) {
+const changeTask = (id, taskNode) => {
     let currentStatus = todoArr.find(task => task.id === id).status;
     if (currentStatus === 'completed') {
         todoArr.find(task => task.id === id).status = 'progress';
@@ -24,7 +24,7 @@ function changeTask(id, taskNode) {
     }
 };
 
-function deleteTask(id) {
+const deleteTask = (id) => {
     todoArr.forEach((task, index) => {
       if (task.id === id) {
         todoArr.splice(index, 1);
@@ -32,11 +32,11 @@ function deleteTask(id) {
     })
 };
 
-function filterBy(status) {
+const filterBy = (status) => {
     return todoArr.filter(task => task.status === status);
 };
 
-function renderTasks(todoArr) {
+const renderTasks = (todoArr) => {
     todoArr.forEach((task) => {
         const elem = template.content.cloneNode(true);
         const currentTask = elem.querySelector('.task');
@@ -56,7 +56,7 @@ function renderTasks(todoArr) {
             comleteCheckbox.checked = true;
             currentTask.classList.add('task_green');
         };
-        
+
         toDoList.append(elem);
         toDoInpt.value = '';
     })
@@ -89,4 +89,3 @@ sortBtn.addEventListener('change', (e) => {
         renderTasks(filterBy('progress'));
     }
 });
-
