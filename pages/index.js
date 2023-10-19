@@ -7,7 +7,7 @@ const sortBtn = document.querySelector('.todo__sort');
 
 const addTask = (task) => {
     todoArr.push({
-        id: todoArr.length !== 0 ? todoArr.length : 0,
+        id: todoArr.length,
         task,
         status: 'progress',
     })
@@ -82,7 +82,14 @@ addBtn.addEventListener('submit', (e) => {
     if (toDoInpt.value) {
         toDoList.innerHTML = '';
         addTask(toDoInpt.value);
-        renderTasks(todoArr);
+        if (sortBtn.value === "progress") {
+            renderTasks(filterByStatus('progress'));
+        }
+        if (sortBtn.value === "completed") {
+            renderTasks(filterByStatus('completed'));
+        } else {
+            renderTasks(todoArr);
+        }
     }
 });
 
