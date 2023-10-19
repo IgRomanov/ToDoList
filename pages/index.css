@@ -12,5 +12,7 @@
 @import url(../blocks/todo/__sort/todo__sort.css);
 @import url(../blocks/todo/todo_btn-cursor-pointer.css);
 @import url(../blocks/todo/__input/todo__input.css);
-@import url(../blocks/todo/__input/_style/todo__input_style.css);
 @import url(../blocks/todo/__form/todo__form.css);
+@import url(../blocks/todo/__btn/_style/todo__btn_style.css);
+@import url(../blocks/todo/__add-btn/todo__add-btn.css);
+@import url(../blocks/todo/__column/todo__column.css);

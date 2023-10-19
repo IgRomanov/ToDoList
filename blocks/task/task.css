@@ -5,4 +5,5 @@
     padding: 10px;
     border-radius: 15px;
     justify-content: space-between;
+    box-shadow: 0 0 3px rgb(141, 247, 255);
 }

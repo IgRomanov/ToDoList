@@ -13,17 +13,6 @@ const addTask = (task) => {
     })
 };
 
-const changeTask = (id, taskNode) => {
-    let currentStatus = todoArr.find(task => task.id === id).status;
-    if (currentStatus === 'completed') {
-        todoArr.find(task => task.id === id).status = 'progress';
-        taskNode.classList.remove('task_green');
-    } else {
-        todoArr.find(task => task.id === id).status = 'completed';
-        taskNode.classList.add('task_green');
-    }
-};
-
 const deleteTask = (id) => {
     todoArr.forEach((task, index) => {
       if (task.id === id) {
@@ -32,9 +21,27 @@ const deleteTask = (id) => {
     })
 };
 
-const filterBy = (status) => {
+const filterByStatus = (status) => {
     return todoArr.filter(task => task.status === status);
 };
+
+const changeTask = (id, taskNode) => {
+    let currentStatus = todoArr.find(task => task.id === id).status;
+    if (currentStatus === 'completed') {
+        todoArr.find(task => task.id === id).status = 'progress';
+        if (sortBtn.value === "completed") {
+            taskNode.remove();
+        }
+        taskNode.classList.remove('task_green');
+    } else {
+        todoArr.find(task => task.id === id).status = 'completed';
+        if (sortBtn.value === "progress") {
+            taskNode.remove();
+        }
+        taskNode.classList.add('task_green');
+    }
+};
+
 
 const renderTasks = (todoArr) => {
     todoArr.forEach((task) => {
@@ -62,11 +69,11 @@ const renderTasks = (todoArr) => {
     })
 };
 
-const todoArr = [];
+let todoArr = [];
 
 dltAllBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    todoArr.splice(0, todoArr.length);
+    todoArr = [];
     toDoList.innerHTML = '';
 });
 
@@ -84,8 +91,8 @@ sortBtn.addEventListener('change', (e) => {
     if (e.target.value === "all") {
         renderTasks(todoArr);
     } else if (e.target.value === "completed") {
-        renderTasks(filterBy('completed'));
+        renderTasks(filterByStatus('completed'));
     } else {
-        renderTasks(filterBy('progress'));
+        renderTasks(filterByStatus('progress'));
     }
 });

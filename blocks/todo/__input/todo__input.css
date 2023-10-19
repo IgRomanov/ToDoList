@@ -1,3 +1,16 @@
 .todo__input {
-    max-width: 200px;
+    border-radius: 15px;
+    border: none;
+    padding: 0 10px;
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    box-shadow: 0 0 12px rgb(0, 162, 255);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.todo__input::placeholder {
+    color: rgb(0, 0, 0)
 }
