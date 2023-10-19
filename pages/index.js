@@ -25,37 +25,38 @@ function changeTask(id, taskNode) {
 };
 
 function deleteTask(id) {
-    let i = 0;
-    todoArr.forEach((task) => {
+    todoArr.forEach((task, index) => {
       if (task.id === id) {
-        todoArr.splice(i, 1);
+        todoArr.splice(index, 1);
       }
-      i+=1;
     })
 };
 
 function filterBy(status) {
-    const filterAr = todoArr.filter(task => task.status === status);
-    return filterAr;
+    return todoArr.filter(task => task.status === status);
 };
 
 function renderTasks(todoArr) {
     todoArr.forEach((task) => {
         const elem = template.content.cloneNode(true);
-        elem.querySelector('.task__name').textContent = task.task;
         const currentTask = elem.querySelector('.task');
         const comleteCheckbox = elem.querySelector('.task__completed');
+        elem.querySelector('.task__name').textContent = task.task;
+
         elem.querySelector('.todo__dlt-btn').addEventListener('click', () => {
             deleteTask(task.id);
             currentTask.remove();
         });
+
         comleteCheckbox.addEventListener('click', () => {
             changeTask(task.id, currentTask);
-        })
+        });
+
         if (task.status === 'completed') {
             comleteCheckbox.checked = true;
             currentTask.classList.add('task_green');
-        }
+        };
+        
         toDoList.append(elem);
         toDoInpt.value = '';
     })
